@@ -12,7 +12,7 @@ export default function Home() {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.content}>
-                <Text style={styles.title}>Atividade Integracao SQL</Text>
+                <Text style={styles.title}>StockPlus</Text>
                 <Text style={styles.subtitle}>Selecione uma opcao para continuar</Text>
 
                 <TouchableOpacity onPress={() => navigation.navigate('Produtos')} style={styles.button}>
@@ -21,6 +21,9 @@ export default function Home() {
 
                 <TouchableOpacity onPress={() => navigation.navigate('Categorias')} style={styles.button}>
                     <Text style={styles.buttonText}>Categorias</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('Estoque')} style={styles.button}>
+                    <Text style={styles.buttonText}>Estoque</Text>
                 </TouchableOpacity>
             </View>
         </SafeAreaView>
