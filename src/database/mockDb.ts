@@ -1,4 +1,7 @@
 // utilizado para popular, simular o banco de dados
+// utilizar assim:
+// import { db, Produto, Categoria } from '../database/mockDb';
+// const listaDeProdutos: Produto[] = db.produtos; ou const listaDeCategorias: Categoria[] = db.categorias;
 export interface Categoria {
   id_categoria: number;
   dc_categoria: string;
