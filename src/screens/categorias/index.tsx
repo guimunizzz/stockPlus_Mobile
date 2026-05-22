@@ -115,9 +115,11 @@ export default function CategoriaScreen() {
 }
 
 const styles = StyleSheet.create({
+  // botoes principais e layout geral
   container: { flex: 1, backgroundColor: '#f8fafc', padding: 12 },
   addButton: { backgroundColor: '#111827', padding: 12, borderRadius: 8, marginBottom: 12 },
   addButtonText: { color: '#fff', fontWeight: '600', textAlign: 'center', fontSize: 14 },
+  // estilos para cada linha da categoria
   row: {
     flexDirection: 'row',
     backgroundColor: '#fff',
@@ -128,12 +130,17 @@ const styles = StyleSheet.create({
     borderColor: '#e5e7eb',
     alignItems: 'center',
   },
+  // estilo do nome da categoria
   categoryName: { flex: 1, fontSize: 14, color: '#111827', fontWeight: '500' },
+
+  // botoes de ação (editar e excluir)
   actions: { flexDirection: 'row', gap: 6 },
   actionBtn: { backgroundColor: '#f3f4f6', paddingVertical: 4, paddingHorizontal: 8, borderRadius: 6 },
   actionText: { fontSize: 12, color: '#111827' },
   deleteBtn: { backgroundColor: '#fee2e2' },
   deleteText: { color: '#dc2626' },
+
+  // estilos para o modal de edição/criação
   modalOverlay: {
     flex: 1,
     backgroundColor: 'rgba(0,0,0,0.45)',
@@ -142,6 +149,7 @@ const styles = StyleSheet.create({
   },
   modalBox: { backgroundColor: '#fff', borderRadius: 12, padding: 20 },
   modalTitle: { fontSize: 16, fontWeight: '700', marginBottom: 12, color: '#111827' },
+  // estilos para o input do nome da categoria no modal
   input: {
     borderWidth: 1,
     borderColor: '#d1d5db',
@@ -151,6 +159,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#111827',
   },
+  // estilos para os botoes de ação dentro do modal
   modalActions: { flexDirection: 'row', justifyContent: 'flex-end', gap: 8, marginTop: 4 },
   cancelBtn: { padding: 10, borderRadius: 8, borderWidth: 1, borderColor: '#d1d5db' },
   cancelText: { color: '#374151', fontSize: 14 },
