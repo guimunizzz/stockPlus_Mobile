@@ -67,15 +67,15 @@ export default function Produtos() {
   }
 
   function handleSave() {
-    const preco = parseFloat(form.preco.replace(',', '.'));
+    const preco = Number.parseFloat(form.preco.replace(',', '.'));
     if (!form.dc_produto.trim() || isNaN(preco)) {
       Alert.alert('Erro', 'Preencha nome e preço corretamente.');
       return;
     }
 
-    const estoqueMinimo = parseInt(form.estoque_minimo) || 0;
-    const idCategoria = parseInt(form.id_categoria) || 0;
-    const idFornecedor = parseInt(form.id_fornecedor) || 0;
+    const estoqueMinimo = Number.parseInt(form.estoque_minimo) || 0;
+    const idCategoria = Number.parseInt(form.id_categoria) || 0;
+    const idFornecedor = Number.parseInt(form.id_fornecedor) || 0;
 
     if (editingId !== null) {
       setProdutos(prev =>

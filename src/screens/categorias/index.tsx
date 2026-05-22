@@ -5,30 +5,33 @@ import {
 } from 'react-native';
 import { db, Categoria } from '../../database/mockDb';
 
+// modais e lógica de CRUD para categorias (useState para controlar o estado da lista de categorias, modal de edição/criação, e campos de input)
 export default function CategoriaScreen() {
   const [categorias, setCategorias] = useState<Categoria[]>(db.categorias);
   const [editModal, setEditModal] = useState(false);
   const [editingId, setEditingId] = useState<number | null>(null);
   const [name, setName] = useState('');
 
+  // chama o modal de criação, limpando campos e resetando o estado de edição
   function openCreate() {
     setEditingId(null);
     setName('');
     setEditModal(true);
   }
 
+  // chama o modal de edição, preenchendo os campos com os dados da categoria selecionada
   function openEdit(c: Categoria) {
     setEditingId(c.id_categoria);
     setName(c.dc_categoria);
     setEditModal(true);
   }
-
+  // função para salvar tanto criação quanto edição, validando o input e atualizando a lista de categorias
   function handleSave() {
     if (!name.trim()) {
       Alert.alert('Erro', 'Informe o nome da categoria.');
       return;
     }
-
+    // caso editingId seja diferente de null, significa que estamos editando uma categoria existente, então atualizamos a lista com o novo nome. Caso contrário, criamos uma nova categoria com um id gerado a partir do timestamp.
     if (editingId !== null) {
       setCategorias(prev =>
         prev.map(c =>
@@ -46,6 +49,7 @@ export default function CategoriaScreen() {
     setEditModal(false);
   }
 
+  // função para excluir uma categoria, mostrando um alerta de confirmação antes de remover a categoria da lista
   function handleDelete(id: number) {
     Alert.alert('Confirmar', 'Tem certeza que deseja excluir?', [
       { text: 'Cancelar', style: 'cancel' },
@@ -91,6 +95,7 @@ export default function CategoriaScreen() {
         <View style={styles.modalOverlay}>
           <View style={styles.modalBox}>
             <Text style={styles.modalTitle}>
+              {/* ternario para caso não ache o item para editar, irá criar uma nova */}
               {editingId !== null ? 'Editar Categoria' : 'Nova Categoria'}
             </Text>
             <TextInput
